@@ -14,7 +14,7 @@ require_once "../include/session.php";
 						"message" => "Please enter Amount!",
 					));
 				}else if(fundUser($single, $amt, "_totalBal") == 1){
-					fundUser($single, $amt, "_depositBal");
+					fundUser($single, $amt, "_depositBal", 'no');
 						print json_encode(array(
 							"status" => 1,
 							"title" => "Success!",
@@ -29,29 +29,30 @@ require_once "../include/session.php";
 							fundUser($firstGen['_uId'], $firstGenPrice, "_referralEarn");
 							$query1=mysqli_query($conn, "INSERT INTO referral (_user, _from, _level, _percent, _amount) VALUES ('$firstGenid', '$single', 'First Generation', '12', '$firstGenPrice')")or die(mysqli_error($conn));
 							if(mysqli_affected_rows($conn)>0){
-								if(fetchUserSingle($firstGen['_uId'])['_referredMe']!=""){
-									
-									$secondGen = fetchUserSingleByUname(fetchUserSingle($firstGen['_uId'])['_referredMe']);
-									if(fetchUserSingle($firstGen['_uId'])['_referredMe']!=fetchUserSingle($single)['_userName']){
-										$secondGenPrice = calcPercentage($amt, 6);
-										fundUser($secondGen['_uId'], $secondGenPrice, "_totalBal");
-										fundUser($secondGen['_uId'], $secondGenPrice, "_referralEarn");
-										$secondGenid = $secondGen['_uId'];
-										mysqli_query($conn, "INSERT INTO referral (_user, _from, _level, _percent, _amount) VALUES ('$secondGenid', '$single', 'Second Generation', '6', '$secondGenPrice')");
-										if(fetchUserSingle($secondGen['_uId'])['_referredMe']!=""){
-											if(fetchUserSingle($secondGen['_uId'])['_referredMe']!=fetchUserSingle($single)['_userName']){
-												$thirdGen = fetchUserSingleByUname(fetchUserSingle($secondGen['_uId'])['_referredMe']);
-												$thirdGenPrice = calcPercentage($amt, 2);
-												fundUser($thirdGen['_uId'], $thirdGenPrice, "_totalBal");
-												fundUser($thirdGen['_uId'], $thirdGenPrice, "_referralEarn");
-												$thirdGenid = $thirdGen['_uId'];
-												mysqli_query($conn, "INSERT INTO referral (_user, _from, _level, _percent, _amount) VALUES ('$thirdGenid', '$single', 'Third Generation', '2', '$thirdGenPrice')");
-											}
-										}
-									}
-								}
+                                mysqli_query($conn, "UPDATE _users SET _firstDeposit='N' WHERE _uId='$single'");
+//								if(fetchUserSingle($firstGen['_uId'])['_referredMe']!=""){
+//									
+//									$secondGen = fetchUserSingleByUname(fetchUserSingle($firstGen['_uId'])['_referredMe']);
+//									if(fetchUserSingle($firstGen['_uId'])['_referredMe']!=fetchUserSingle($single)['_userName']){
+//										$secondGenPrice = calcPercentage($amt, 6);
+//										fundUser($secondGen['_uId'], $secondGenPrice, "_totalBal");
+//										fundUser($secondGen['_uId'], $secondGenPrice, "_referralEarn");
+//										$secondGenid = $secondGen['_uId'];
+//										mysqli_query($conn, "INSERT INTO referral (_user, _from, _level, _percent, _amount) VALUES ('$secondGenid', '$single', 'Second Generation', '6', '$secondGenPrice')");
+//										if(fetchUserSingle($secondGen['_uId'])['_referredMe']!=""){
+//											if(fetchUserSingle($secondGen['_uId'])['_referredMe']!=fetchUserSingle($single)['_userName']){
+//												$thirdGen = fetchUserSingleByUname(fetchUserSingle($secondGen['_uId'])['_referredMe']);
+//												$thirdGenPrice = calcPercentage($amt, 2);
+//												fundUser($thirdGen['_uId'], $thirdGenPrice, "_totalBal");
+//												fundUser($thirdGen['_uId'], $thirdGenPrice, "_referralEarn");
+//												$thirdGenid = $thirdGen['_uId'];
+//												mysqli_query($conn, "INSERT INTO referral (_user, _from, _level, _percent, _amount) VALUES ('$thirdGenid', '$single', 'Third Generation', '2', '$thirdGenPrice')");
+//											}
+//										}
+//									}
+//								}
 							}else{ echo "failed1"; }
-							mysqli_query($conn, "UPDATE _users SET _firstDeposit='N' WHERE _uId='$single'");
+							
 						}
 					}else{
 						print json_encode(array(

@@ -1,4 +1,10 @@
   <?php	
+
+require 'vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
 function systemInfo(){
 	global $conn;
 	$site_query = mysqli_query($conn, "select * from ".SI." where S_Id = 1");
@@ -48,31 +54,90 @@ function calcPercentage($val, $per){
        
     }
 
-function sendMail($email, $subject, $message){
-		require_once('mailer/class.phpmailer.php');
-        $mail = new PHPMailer();
-        $mail->IsSMTP();
-        $mail->SMTPDebug = 0;
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = "";
-        $mail->Host = "emmyzealoussoftwares.com";
-        $mail->Port = 587;
-        $mail->AddAddress($email);
-        $mail->Username = "ln@emmyzealoussoftwares.com";
-        $mail->Password = "13072000@";
-        $mail->SetFrom('ln@emmyzealoussoftwares.com', 'Lucky Number');
-        $mail->AddReplyTo("ln@emmyzealoussoftwares.com", "Lucky Number");
-        $mail->Subject = $subject;
-        $mail->MsgHTML($message);
-        if($mail->Send()){
-            return 1;
-        }else{
-		    return 0;
-	    }
+function sendMail($to, $subject, $message){
+		$mail = new PHPMailer(true);
+        try {
+            // Server settings
+            $mail->SMTPDebug = 0; // Set to 2 for debugging
+            $mail->isSMTP();
+            $mail->Host = 'prymecapitals.com'; // Your SMTP server
+            $mail->SMTPAuth = true;
+            $mail->Username = 'contact@prymecapitals.com'; // Your SMTP username
+            $mail->Password = 'Grace2023'; // Your SMTP password
+            // $mail->Password = 'rubymailpass';
+            $mail->SMTPSecure = 'tls'; // Enable TLS encryption
+            $mail->Port = 587; // TCP port to connect to
+
+            // Recipients
+            $mail->setFrom('contact@prymecapitals.com', 'Pryme Capitals'); // Sender email and name
+            $mail->addAddress($to, NULL); // Recipient email and name
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $message; // You can use HTML for the email content
+
+            // Send the email
+            $mail->send();
+            return true; // Email sent successfully
+        } catch (Exception $e) {
+            // print_r($e); die();
+            return false;
+        }
 	}
 
-function fundUser($id, $amt, $column){
+function fundUser($id, $amt, $column, $sendemail="yes"){
 global $conn;
+$user=fetchUserSingle($id);
+$subject = "Your account was Successfully Funded";
+ $message = "
+    <html>
+        <head>
+            <style>
+                .btn{
+                    padding: 12px;
+                    background-color: gold;
+                    color: black;
+                    border-radius: 8px;
+                    border: 1px solid blue;
+                    text-decoration: none;
+                }
+            </style>
+        </head>
+        <body style='background-color:#000033; color:white; padding: 10px; height: auto; padding: 20px'>
+            <h5> Hi ".$user['_userName'].", </h5>
+            <p>Your account was successfully funded with the sum of $".$amt." <br>
+            Please use the link below to login to your dashboard to view your new Account Balance<br>
+            Link: https://www.prymecapitals.com/login
+            </p>
+
+            
+
+            <p>
+
+                You are receiving this mail because you registered to Pryme Capitals. <br>
+
+                Thank you for choosing <a href='https://prymecapitals.com'>Pryme Capitals</a>.
+
+            </p>  
+            <div style='background-color:white; height:4px; width:100%; margin-top:20px; margin-bottom:20px'></div>
+            <p>
+                For questions drop us mail at admin@prymecapitals.com.<br>
+                <h6>&copy ".date('Y')." Pryme Capitals. All Rights Reserved.</h6>
+
+            </p> 
+
+        </body>
+    </html>
+    ";
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+    // More headers
+    $headers .= 'From: <admin@prymecapitals.com>' . "\r\n";
+    if($sendemail=="yes"){
+         sendMail($user['_uEmail'],$subject,$message);
+    }
 $query = $conn->query("update ".C." set $column = ($column + $amt) where _uId = $id");
 
 if(mysqli_affected_rows($conn)>0){

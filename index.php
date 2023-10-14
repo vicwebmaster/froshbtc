@@ -839,7 +839,58 @@
           </div>
                   </div>
       </div>
-    </section>                    
+    </section>  
+    
+    <section class="pt-120 pb-120 border-top-1">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <div class="section-header">
+              <h2 class="section-title"><span class="font-weight-normal">We'd love to hear from you</span></h2>
+              <p>For quick enquries and investment consultant feel Free to get in touch with us, is easy and free.</p>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row justify-content-center mb-none-30">
+            <div class="col-lg-10 mb-4">
+            <div class="row mb-none-30">
+                            <div class="col-md-4 col-sm-6 mb-30">
+                <div class="contact-item">
+                  <i class="las la-phone"></i>                  <h5 class="mt-2">Phone Number</h5>
+                  <div class="mt-4">
+                    <p><a href="javascript:void(0)"><?php echo $system['sitenumber']; ?></a></p>
+                  </div>
+                </div><!-- contact-item end -->
+              </div>
+                            <div class="col-md-4 col-sm-6 mb-30">
+                <div class="contact-item">
+                  <i class="las la-envelope-open"></i>                  <h5 class="mt-2">Email Address</h5>
+                  <div class="mt-4">
+                    <p><a href="javascript:void(0)"><?php echo $system['siteemail']; ?></a></p>
+                  </div>
+                </div><!-- contact-item end -->
+              </div>
+                            <div class="col-md-4 col-sm-6 mb-30">
+                <div class="contact-item">
+                  <i class="las la-map-marker"></i>                  <h5 class="mt-2">Office Address</h5>
+                  <div class="mt-4">
+                    <p><a href="javascript:void(0)"><?php echo $system['siteaddr']; ?></a></p>
+                  </div>
+                </div><!-- contact-item end -->
+              </div>
+                          </div>
+          </div>
+            <div class="col-lg-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6379.571558281069!2d174.838961!3d-36.919386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4948f0c93975%3A0x4dc6989acae16d22!2s6B%20Pacific%20Rise%2C%20Mount%20Wellington%2C%20Auckland%201060%2C%20New%20Zealand!5e0!3m2!1sen!2sng!4v1697099168503!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-10 mt-3">
+                <a href="certi.pdf" class="cmn-btn btn-md form-control btn">View Company Certificate</a>
+            </div>
+            
+             
+        </div>
+      </div>
+    </section> 
     <section class="pb-120">
       <div class="container">
         <div class="row justify-content-center">

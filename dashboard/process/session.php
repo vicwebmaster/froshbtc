@@ -15,8 +15,9 @@
             			$autoPercent = $autoRow['_return'];
             			$autoAmt = $autoRow['_amt'];
             			$autoGain = ($autoPercent / 100) * $autoAmt;
-            			$autoRealgain = ($autoGain*$autoRow['_day']) + $autoAmt;
-            			$autoquery2=mysqli_query($conn, "UPDATE _users SET _totalBal=(_totalBal+$autoRealgain), _interestBal=(_interestBal+$autoGain) WHERE _uId='$autoUserid'");
+            			$f=$autoGain*$autoRow['_day'];
+            			$autoRealgain = $f + $autoAmt;
+            			$autoquery2=mysqli_query($conn, "UPDATE _users SET _totalBal=(_totalBal+$autoRealgain), _interestBal=(_interestBal+$f) WHERE _uId='$autoUserid'");
             			$autoquery3=mysqli_query($conn, "UPDATE _plantrx SET _stts='C' WHERE _pId='$autoid'");
                     }
         			

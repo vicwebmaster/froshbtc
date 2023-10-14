@@ -1,23 +1,22 @@
 <?php
-    function send_mail($email, $messag, $subject) {
-        require_once('mailer/class.phpmailer.php');
-        $mail = new PHPMailer();
-        $mail->IsSMTP();
-        $mail->SMTPDebug = 0;
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = "tls";
-//        $mail->Host = "server136.web-hosting.com";
-        $mail->Host = "prymecapitals.com";
-        $mail->Port = 587;
-        $mail->AddAddress($email);
-        $mail->Username = "admin@prymecapitals.com";
-        $mail->Password = "Grace2023";
-        $mail->SetFrom('admin@prymecapitals.com', 'Pryme Capitals');
-        $mail->AddReplyTo("admin@prymecapitals.com", "Pryme Capitals");
-        $mail->Subject = $subject;
-        $mail->MsgHTML($messag);
-        if($mail->Send()){ return 1; }else{ return 0; }
-    }
+//  function send_mail($email, $message, $subject){
+//        // Always set content-type when sending HTML email
+//        $headers = "MIME-Version: 1.0" . "\r\n";
+//        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+//
+//        // More headers
+//        $headers .= 'From: <admin@prymecapitals.com>' . "\r\n";
+//
+//        return mail($email,$subject,$message,$headers) ? 1 : 0;
+//    }
+
+
+
+$subject = "Welcome to Pryme Capitals";
+               
+
+  
+
     session_start();
     include "conn.php";
     include "function.php";
@@ -91,11 +90,52 @@
             $query = mysqli_query($conn, "INSERT INTO _users (_fName, _lName, _country, _uPhone, _uEmail, _userName, _uPassword, _otp, _otpExpiry, _referredMe) 
             VALUES ('$fName', '$lName', '$Country', '$mobile', '$uEmail', '$userName', '$uPassword', '$otp', '$time', '$refer') ");
             if($query){
-               
-                    print json_encode(array(
-                        'status'=>1
-                    ));
-                
+                 $message = "
+                <html>
+                    <head>
+                        <style>
+                            .btn{
+                                padding: 12px;
+                                background-color: gold;
+                                color: black;
+                                border-radius: 8px;
+                                border: 1px solid blue;
+                                text-decoration: none;
+                            }
+                        </style>
+                    </head>
+                    <body style='background-color:#000033; color:white; padding: 10px; height: auto; padding: 20px'>
+                        <h5> Hi ".$userName.", </h5>
+                        <p>Welcome to Pryme Capitals one of the largest digital financial firm and real estate investment. We wish you a great experience. </p>
+
+                        <p>
+                            Your login information: <br>
+                            Login: ".$userName."<br>
+                            Password: ".$uPassword."
+                        </p>
+
+                        <p>
+                            You can login here: https://www.prymecapitals.com/login <br>
+
+                            Contact us immediately if you did not authorize this registration. <br>
+
+                            Thank you for choosing <a href='https://prymecapitals.com'>Pryme Capitals</a>.
+
+                        </p>  
+                        <div style='background-color:white; height:4px; width:100%; margin-top:20px; margin-bottom:20px'></div>
+                        <p>
+                            For questions drop us mail at admin@prymecapitals.com.<br>
+                            <h6>&copy ".date('Y')." Pryme Capitals. All Rights Reserved.</h6>
+
+                        </p> 
+
+                    </body>
+                </html>
+                ";
+                send_mail($uEmail, $message, $subject); 
+                print json_encode(array(
+                    'status'=>1
+                ));
             }else{
                 print json_encode(array(
                     'status'=>0,

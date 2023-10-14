@@ -99,7 +99,7 @@
 										<input type="number" id="amt" class="form-control" placeholder="Amount to Fund">
 									</div>
                                     
-                                    <button type="button" onclick="fund()" class="btn btn-primary">Fund</button>
+                                    <button type="button" id="fundBTN" onclick="fund()" class="btn btn-primary">Fund</button>
                             </div>
                         </div>
                     </div>
@@ -182,6 +182,7 @@
 	  
 	  
 	  fund = function(){
+          $('#fundBTN').prop("disabled", true);
 			var single = $("#single").val();
 			var amt = $("#amt").val();
 			alertify.set('notifier','position', 'top-right');
@@ -192,6 +193,7 @@
 					dataType: 'json',
 					data:{single:single, amt:amt},
 					success:function(resp){
+                        $('#fundBTN').prop("disabled", false);
 						if(resp.status === 1){
 							Swal.fire(
 							resp.title, 

@@ -133,23 +133,34 @@ $btcamt = json_decode($response);
                             <div class="row">
                                 
                                 <div class="col-md-12 text-center">
-                                    <p class="text-center mt-2">You have requested  <b class="text-success"><?php echo $_SESSION['amt']; ?> USD</b> , Please pay <b class="text-success"><?php echo $btcamt; ?> BTC</b>  for successful payment </p>
+                                    <p class="text-center mt-2">
+                                        You have requested  <b class="text-success"><?php echo $_SESSION['amt']; ?> USD</b> , Please pay <b class="text-success"><?php echo $btcamt; ?> BTC</b>  for successful payment 
+                                    </p>
                                     <h4 class="text-center mb-4">Please follow the instruction below</h4>
 
-                                    <p class="my-4 text-center"><p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;"><span style="outline: 0px; font-size: 1rem;">BTC-Wallet-Address:</span><span style="outline: 0px; font-size: 1rem;">&nbsp;</span><span style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold;">
-									<?php $sendBTChere=$fetch['BTC']; echo $sendBTChere; ?></span>
-                  <div class="input-group-append">
-                    <span class="input-group-text copytext copyBoard" id="copyBoard"> Copy BTC Address</span>
-                  </div><wbr style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small;"></p><p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;">NB: please use Bitcoin network for BTC transfer</p></p>
+                                    <p class="my-4 text-center">
+                                        <p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;">
+                                            <span style="outline: 0px; font-size: 1rem;">BTC-Wallet-Address:</span>
+                                            <span style="outline: 0px; font-size: 1rem;">&nbsp;</span>
+                                            <span style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold;">
+                                            <?php $sendBTChere=$fetch['BTC']; echo $sendBTChere; ?></span>
+                                          <div class="input-group-append">
+                                            <span class="input-group-text copytext copyBoard" id="copyBoard"> Copy BTC Address</span>
+                                          </div>
+                                            <wbr style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: small;">
+                                        </p>
+                            
+                                            <p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;">NB: please use Bitcoin network for BTC transfer</p>
+                                    </p>
 
                                 </div>
 
                  <input type="text" id="referralURL" value="<?= $sendBTChere ?>" hidden>
-                  
-
-								<div class="col-md-12">
-									<div class="form-group">
-										<label><strong>Proof of Transfer  <span class="text-danger">*</span>  </strong></label>
+                       
+                       
+                                <div class="col-md-12">
+									<div class="form-group mt-4">
+										<label><strong>Transaction hash/ID  <span class="text-danger">*</span>  </strong></label>
 										<br>
 
 										<div class="fileinput fileinput-new " data-provides="fileinput">
@@ -157,25 +168,24 @@ $btcamt = json_decode($response);
 											<div class="fileinput-preview fileinput-exists thumbnail wh-200-150"></div>
 
 											<div class="img-input-div">
+                                                <input type="text" class="form-control" placeholder="Enter hash/ID here" name="hash">
+<!--
 												<span class="btn btn-info btn-file">
 													<span class="fileinput-new "> Select Proof of Transfer</span>
 													<span class="fileinput-exists"> Change</span>
 													<input type="file" name="image" accept="image/*" >
 												</span>
+-->
 											</div>
 
 										</div>
 
 									</div>
 								</div>
-                                        
-                                    
-                                
-
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <button type="submit" id="payBtn" class="btn cmn-btn btn-block mt-2 text-center">Pay Now</button>
-                                        <button type="button" style="display:none" id="loading" class="btn cmn-btn btn-block mt-2 text-center">Pay Now</button>
+                                        <button type="submit" id="payBtn" class="btn cmn-btn btn-block mt-2 text-center">Confirm Deposit</button>
+                                        <button type="button" style="display:none" id="loading" class="btn cmn-btn btn-block mt-2 text-center">Confirm Deposit</button>
                                     </div>
                                 </div>
 

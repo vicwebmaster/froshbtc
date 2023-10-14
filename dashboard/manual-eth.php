@@ -156,8 +156,8 @@ $btcamt = json_decode($tron_value);
                   
 
 								<div class="col-md-12">
-									<div class="form-group">
-										<label><strong>Proof of Transfer  <span class="text-danger">*</span>  </strong></label>
+									<div class="form-group mt-4">
+										<label><strong>Transaction hash/ID  <span class="text-danger">*</span>  </strong></label>
 										<br>
 
 										<div class="fileinput fileinput-new " data-provides="fileinput">
@@ -165,11 +165,14 @@ $btcamt = json_decode($tron_value);
 											<div class="fileinput-preview fileinput-exists thumbnail wh-200-150"></div>
 
 											<div class="img-input-div">
+                                                <input type="text" class="form-control" placeholder="Enter hash/ID here" name="hash">
+<!--
 												<span class="btn btn-info btn-file">
 													<span class="fileinput-new "> Select Proof of Transfer</span>
 													<span class="fileinput-exists"> Change</span>
 													<input type="file" name="image" accept="image/*" >
 												</span>
+-->
 											</div>
 
 										</div>
@@ -182,8 +185,8 @@ $btcamt = json_decode($tron_value);
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <button type="submit" id="payBtn" class="btn cmn-btn btn-block mt-2 text-center">Pay Now</button>
-                                        <button type="button" style="display:none" id="loading" class="btn cmn-btn btn-block mt-2 text-center">Pay Now</button>
+                                        <button type="submit" id="payBtn" class="btn cmn-btn btn-block mt-2 text-center">Confirm Deposit</button>
+                                        <button type="button" style="display:none" id="loading" class="btn cmn-btn btn-block mt-2 text-center">Confirm Deposit</button>
                                     </div>
                                 </div>
 

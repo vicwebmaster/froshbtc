@@ -110,6 +110,7 @@ session_start();
                   <div class="form-group">
                     <label>Country</label>
                     <select name="country" id="country" class="form-control">
+                                                    <option value="" selected>- Select Country -</option>
                                                     <option data-mobile_code="93" value="Afghanistan" data-code="AF">Afghanistan</option>
                                                     <option data-mobile_code="358" value="Aland Islands" data-code="AX">Aland Islands</option>
                                                     <option data-mobile_code="355" value="Albania" data-code="AL">Albania</option>

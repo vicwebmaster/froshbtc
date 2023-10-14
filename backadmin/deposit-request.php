@@ -75,7 +75,7 @@
 											<th>Amount</th>
 											<th>Coin</th>
 											<th>Transaction ID</th>
-											<th>Prove</th>
+											<th>Hash/ID</th>
 											<th>Status</th>
 											<th>Date</th>
 											<th>Action</th>
@@ -88,7 +88,7 @@
 											<td>$<?php echo $deposit['hAmt']; ?></td>
 											<td><?php echo $deposit['hGateway']; ?></td>
 											<td><?php echo $deposit['hTrx']; ?></td>
-											<td><img src="../dashboard/prove/<?php echo $deposit['hLink']; ?>" width="200px"></td>
+											<td><?php echo $deposit['hLink']; ?></td>
 											<td><?php 
 												if($deposit['hStatus'] == "Pending"){ ?>
 													<div class="badge badge-primary">Pending</div>

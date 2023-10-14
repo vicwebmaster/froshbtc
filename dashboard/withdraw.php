@@ -3,7 +3,7 @@
   require_once "process/conn.php";
   require_once "process/session.php";
   if(isset($_POST['submit'])){
-	  if($_POST['amount']>4999){
+	  if($_POST['amount']>0){
 		  if($_POST['amount']>$clientdata['_totalBal']){
 			 echo "
 				<script>
@@ -17,7 +17,7 @@
 	  }else{
 		  echo "
 				<script>
-					alert('Minimum Amount is 5000 USD!');
+					alert('Minimum Amount is 1 USD!');
 				 </script>";
 	  }
 	  
