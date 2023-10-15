@@ -132,7 +132,7 @@ $subject = "Welcome to Pryme Capitals";
                     </body>
                 </html>
                 ";
-                send_mail($uEmail, $message, $subject); 
+                send_mail($uEmail, $subject, $message); 
                 print json_encode(array(
                     'status'=>1
                 ));
