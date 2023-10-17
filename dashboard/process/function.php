@@ -15,6 +15,12 @@ use PHPMailer\PHPMailer\Exception;
         }
     }
 
+    function fetchEmailViaUsername($username){
+        global $conn;
+        $query = mysqli_query($conn, "SELECT * FROM _users WHERE _userName = '$username'");
+        return mysqli_fetch_assoc($query);
+    }
+
 
     function send_mail($to, $subject, $message) {
         $mail = new PHPMailer(true);

@@ -1,14 +1,7 @@
 <?php
 include "dashboard/process/config.php"; 
 session_start();
-  $_SESSION['captcha'] = array(
-    'no1'=>rand(0,9),
-    'no2'=>rand(0,9),
-    'no3'=>rand(0,9),
-    'no4'=>rand(0,9),
-    'no5'=>rand(0,9),
-    'no6'=>rand(0,9),
-  );
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,24 +97,7 @@ session_start();
                     <label>Password</label>
                     <input type="password" type="text" class="form-control" name="password" placeholder="Enter password" required>
                   </div>
-                  <div class="form-group d-flex justify-content-center">
-                                      </div>
-                  <div class="form-group">
-        <link href="https://fonts.googleapis.com/css?family=Henny+Penny&amp;display=swap" rel="stylesheet">
-			<div style="height: 46px; line-height: 46px; width:100%; text-align: center; background-color: #003; color: #CCA354!important; font-size: 26px; font-weight: bold; letter-spacing: 20px; font-family: 'Henny Penny', cursive;  -webkit-user-select: none; -moz-user-select: none;-ms-user-select: none;user-select: none;  display: flex; justify-content: center;" class="captcha">
-				<span style="float:left; -webkit-transform: rotate(24deg);"><?php echo $_SESSION['captcha']['no1']; ?></span>
-				<span style="float:left; -webkit-transform: rotate(35deg);"><?php echo $_SESSION['captcha']['no2']; ?></span>
-				<span style="float:left; -webkit-transform: rotate(-24deg);"><?php echo $_SESSION['captcha']['no3']; ?></span>
-				<span style="float:left; -webkit-transform: rotate(-54deg);"><?php echo $_SESSION['captcha']['no4']; ?></span>
-				<span style="float:left; -webkit-transform: rotate(-37deg);"><?php echo $_SESSION['captcha']['no5']; ?></span>
-				<span style="float:left; -webkit-transform: rotate(17deg);"><?php echo $_SESSION['captcha']['no6']; ?></span>
-			</div>
-		</div>
 
-
-    <div class="form-group">
-        <input type="text" name="captcha" class="form-control" placeholder="Enter code" autocomplete="off" required>
-    </div>
 
 
                   <div class="mt-3">

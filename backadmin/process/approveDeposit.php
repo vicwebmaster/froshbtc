@@ -32,7 +32,7 @@ require_once "../include/session.php";
  $message = "
     <html>
         <body style='background-color:#000033; color:white; padding: 10px; height: auto; padding: 20px'>
-            <h5> Hi ".$user['_userName'].", </h5>
+            <h5> Hi ".fetchUserSingle($userid)['_fName'].", </h5>
             <p>Your deposit of $".$amt." has been Approved <br>
             Please use the link below to login to your dashboard to view your new Account Balance<br>
             Link: https://www.prymecapitals.com/login

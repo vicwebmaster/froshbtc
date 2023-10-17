@@ -2,6 +2,7 @@
   include "process/config.php"; 
   require_once "process/conn.php";
   require_once "process/session.php";
+  require_once "process/function.php";
   if(!isset($_SESSION['w-amt'])){
 	  header("location:deposit");
   }elseif($_SESSION['w-wallet']=="USDT"){
@@ -19,6 +20,32 @@
     $query=mysqli_query($conn, "UPDATE _users SET _totalBal=(_totalBal-$amt), _totalWithdraw=(_totalWithdraw+$amt) WHERE _uId='$userid'");
     if(mysqli_affected_rows($conn)>0){
       $msg = "<div class='alert alert-success'>Your withdrawal is under Review!</div>";
+      $message='
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Withdrawal Request Received</title>
+        </head>
+        <body>
+            <div style="background-color: #f2f2f2; padding: 20px;">
+                <div style="background-color: #ffffff; padding: 20px; border-radius: 5px; text-align: center;">
+                    <h1 style="color: #333;">Withdrawal Request Received</h1>
+                    <p style="font-size: 16px; color: #555;">Hello '.$clientdata['_fName'].',</p>
+                    <p style="font-size: 16px; color: #555;">We have received your withdrawal request, and it is now being processed.</p>
+                    <p style="font-size: 16px; color: #555;">Here are the details of your withdrawal:</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="font-size: 16px; color: #555;">Amount: $'.$amt.'</li>
+                        <li style="font-size: 16px; color: #555;">Transaction ID: '.rand(00000000000, 99999999999).'</li>
+                    </ul>
+                    <p style="font-size: 16px; color: #555;">We will notify you once the withdrawal process is complete, and the funds have been transferred.</p>
+                    <p style="font-size: 16px; color: #555;">Thank you for choosing our services.</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        ';
+        send_mail($clientdata['_uEmail'], "Withdrawal Request Received", $message);
       
     }else{
       $msg = "<div class='alert alert-danger'>Database Error, Please try again!</div>";

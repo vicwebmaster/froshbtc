@@ -184,6 +184,8 @@
 	}
 	
 	approve = function(id){
+		alertify.set('notifier','position', 'top-right');
+		alertify.success('Processing! Please Wait...');	
 		$.ajax({
 			url: 'process/approveDeposit.php',
 			method: 'POST',

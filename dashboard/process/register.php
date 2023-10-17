@@ -31,14 +31,9 @@ $subject = "Welcome to Pryme Capitals";
         $uEmail = mysqli_real_escape_string($conn, $_POST['email']);
         $userName = mysqli_real_escape_string($conn, $_POST['username']);
         $uPassword = mysqli_real_escape_string($conn, $_POST['password']);
-        $captcha = mysqli_real_escape_string($conn, $_POST['captcha']);
         $confirmPassword = mysqli_real_escape_string($conn, $_POST['password_confirmation']);
-		if(isset($_SESSION['refer'])){
-			$refer=$_SESSION['refer'];
-		}else{
-			$refer="";
-		}
-        if(empty($fName) or empty($lName) or empty($Country) or empty ($uPhone) or empty($captcha) or empty($uEmail) or empty($Phone) or empty($userName) or empty($uPassword) or empty($confirmPassword) ){
+		
+        if(empty($fName) or empty($lName) or empty($Country) or empty ($uPhone) or empty($uEmail) or empty($Phone) or empty($userName) or empty($uPassword) or empty($confirmPassword) ){
             print json_encode(array(
                 'status'=>0,
                 'message'=>"Please Fill all Field",
@@ -53,37 +48,45 @@ $subject = "Welcome to Pryme Capitals";
                  'status'=>0,
                'message'=>"Invalid Email Address",
             ));
-        }else if(strlen($captcha)!=6){
-            print json_encode(array(
-                'status'=>0,
-                'message'=>"Wrong CAPTCHA Provided!",
-            ));
-        }else if(strlen($uPassword)<8){
-            print json_encode(array(
-                'status'=>0,
-                'message'=>"Password Length Must be atleast 8 Characters!",
-            ));
-        }else if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $uPassword)){
-            print json_encode(array(
-                'status'=>0,
-                'message'=>"Password Should Contain atleast one Special Character",
-            ));
-        }else if(!preg_match('/[A-Z]/', $uPassword)){
-            print json_encode(array(
-                'status'=>0,
-                'message'=>"Password Should Contain an Uppercase",
-            ));
         }else if(checkUsername($userName)==1){
             print json_encode(array(
                 'status'=>0,
                 'message'=>"Username has been Taken!!",
             ));
-        }else if($_SESSION['captcha']['no1']!=substr($captcha, 0, 1) or $_SESSION['captcha']['no2']!=substr($captcha, 1, 1) or $_SESSION['captcha']['no3']!=substr($captcha, 2, 1) or $_SESSION['captcha']['no4']!=substr($captcha, 3, 1) or $_SESSION['captcha']['no5']!=substr($captcha, 4, 1) or $_SESSION['captcha']['no6']!=substr($captcha, 5, 1)){
-            print json_encode(array(
-                'status'=>0,
-                'message'=>"Wrong CAPTCHA Provided!",
-            ));
         }else{
+
+            if(isset($_SESSION['refer'])){
+                $refer=$_SESSION['refer'];
+                $d=fetchEmailViaUsername($refer);
+                $m='
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>New Referral Registration</title>
+                </head>
+                <body>
+                    <div style="background-color: #f2f2f2; padding: 20px;">
+                        <div style="background-color: #ffffff; padding: 20px; border-radius: 5px; text-align: center;">
+                            <h1 style="color: #333;">New Referral Registration</h1>
+                            <p style="font-size: 16px; color: #555;">Hello '.$d['_fName'].',</p>
+                            <p style="font-size: 16px; color: #555;">We are excited to inform you that someone has just registered using your referral code.</p>
+                            <p style="font-size: 16px; color: #555;">Here are the details of the new registration:</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="font-size: 16px; color: #555;">Client Name: '.$fName.' '.$lName.'</li>
+                                <li style="font-size: 16px; color: #555;">Referral Code: '.$refer.'</li>
+                            </ul>
+                            <p style="font-size: 16px; color: #555;">Thank you for being a part of our referral program!</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+                ';
+                send_mail($d['_uEmail'], "New Referral Registration", $m);
+                
+            }else{
+                $refer="";
+            }
             $otp = rand(100000, 999999);
             $date = date("Y-m-d");
             $time = date('Y-m-d', strtotime($date .' +1 day'));

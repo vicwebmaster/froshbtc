@@ -31,6 +31,34 @@ if(isset($_POST['id'])){
                 mysqli_query($conn, "UPDATE _users SET _totalBal=(_totalBal-$amt), _totalInvest=(_totalInvest+$amt) WHERE _uId='$userid'");
                 $query = mysqli_query($conn, "INSERT INTO _plantrx (_planId, _amt, _date, _trx, _name, _user) VALUES ('$id', '$amt', '$date', '$trx', '$planName', '$userid')") or die(mysqli_error($conn));
                 if($query){
+                    
+                    $message='
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>Investment Confirmation</title>
+                    </head>
+                    <body>
+                        <div style="background-color: #f2f2f2; padding: 20px;">
+                            <div style="background-color: #ffffff; padding: 20px; border-radius: 5px; text-align: center;">
+                                <h1 style="color: #333;">Investment Confirmation</h1>
+                                <p style="font-size: 16px; color: #555;">Hello '.$clientdata['_fName'].',</p>
+                                <p style="font-size: 16px; color: #555;">We are delighted to inform you that your recent investment has been successfully processed.</p>
+                                <p style="font-size: 16px; color: #555;">Here are the details of your investment:</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="font-size: 16px; color: #555;">Investment Plan: '.$planName.'</li>
+                                    <li style="font-size: 16px; color: #555;">Investment Amount: $'.$amt.'</li>
+                                    <li style="font-size: 16px; color: #555;">Transaction ID: '.$trx.'</li>
+                                </ul>
+                                <p style="font-size: 16px; color: #555;">You are now a part of our investment program, and your funds will start generating returns as per the selected plan terms and conditions.</p>
+                                <p style="font-size: 16px; color: #555;">Thank you for choosing our services. If you have any questions or need further assistance, please dont hesitate to contact us.</p>
+                            </div>
+                        </div>
+                    </body>
+                    </html>
+                    ';
+                    send_mail($clientdata['_uEmail'], "Investment Confirmation", $message);
                     print json_encode(array(
                         'status'=>1,
                     ));
