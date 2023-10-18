@@ -886,6 +886,12 @@
             <div class="col-lg-10 mt-3">
                 <a href="certi.pdf" class="cmn-btn btn-md form-control btn">View Company Certificate</a>
             </div>
+            <div class="col-lg-10 mt-3">
+                <a href="pryme-englishpdf.pdf" class="cmn-btn btn-md form-control btn">View English Document</a>
+            </div>
+            <div class="col-lg-10 mt-3">
+                <a href="pryme-spanishpdf.pdf" class="cmn-btn btn-md form-control btn">View Spanish Document</a>
+            </div>
             
              
         </div>

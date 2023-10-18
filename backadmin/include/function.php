@@ -147,6 +147,17 @@ if(mysqli_affected_rows($conn)>0){
 }
 }
 
+function mfundUser($id, $amt){
+	global $conn;
+	$query = $conn->query("update ".C." set _depositBal = (_depositBal-$amt), _totalBal = (_totalBal-$amt) where _uId = $id");
+	
+	if(mysqli_affected_rows($conn)>0){
+		return 1;
+	}else{
+		return 0;
+	}
+	}
+
 function invest($id, $pid, $amt, $to){
 global $conn;
 $query = $conn->query("insert into ".I." (I_UserId, I_PlanId, I_Amt, I_EndDate)values ('$id', '$pid', '$amt', '$to')");

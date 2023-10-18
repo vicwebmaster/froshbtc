@@ -31,6 +31,14 @@
                 <span>Fund User</span>
             </a>
         </li>
+        <li class="">
+            <a href="mfund" aria-expanded="false">
+                <div class="icon_menu">
+                    <img src="img/menu-icon/11.svg" alt="">
+                </div>
+                <span>Minus User Fund</span>
+            </a>
+        </li>
 
         <li class="">
             <a class="has-arrow" href="#" aria-expanded="false">
