@@ -356,6 +356,11 @@ while($row = mysqli_fetch_assoc($query)){
 }
 return $result;
 }
+function fetchWithdrawalOne($id){
+global $conn;
+$query = $conn->query("select * from ".T." join ".C." on wUser = _uId where wId='$id'");
+return mysqli_fetch_assoc($query);
+}
 
 function fetchInvestment(){
 $result = [];

@@ -153,7 +153,7 @@
                 </div>
                 
                 
-<!--
+
                 <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                     <div class="card">
                         <div class="card-body b-primary">
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                 </div>
--->
+
                 
                 <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                     <div class="card">

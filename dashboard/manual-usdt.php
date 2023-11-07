@@ -120,15 +120,22 @@ $btcamt =$_SESSION['amt'].".00";
                                     <p class="text-center mt-2">You have requested  <b class="text-success"><?php echo $_SESSION['amt']; ?> USD</b> , Please pay <b class="text-success"><?php echo $btcamt; ?> USDT</b>  for successful payment </p>
                                     <h4 class="text-center mb-4">Please follow the instruction below</h4>
 
-                                    <p class="my-4 text-center"><p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;"><span style="outline: 0px; font-size: 1rem;">USDT-Wallet-Address:</span><span style="outline: 0px; font-size: 1rem;">&nbsp;</span><span style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold;">
-									<?php $sendBTChere=$fetch['USDT']; echo $sendBTChere; ?></span>
+                                    <p class="my-4 text-center"><p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;"><span style="outline: 0px; font-size: 1rem;">USDT(TRC20):</span><span style="outline: 0px; font-size: 1rem;">&nbsp;</span>
+                                    <span style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold;">TEpRcs9mg5DUR9vnMYoarFccCevndyK2Ue</span>
+
+                                    <p class="my-4 text-center"><p style="outline: 0px; margin-bottom: 1rem; color: rgb(124, 135, 152); font-family: Rubik, sans-serif; font-size: 16px;"><span style="outline: 0px; font-size: 1rem;">USDT(ERC20):</span><span style="outline: 0px; font-size: 1rem;">&nbsp;</span>
+                                    <span style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight:bold;">0x8b3fa217259d8a5164C21750f68e455Ba1878513</span>
                   <div class="input-group-append">
-                    <span class="input-group-text copytext copyBoard" id="copyBoard"> Copy USDT Address</span>
+                    <span class="input-group-text copytext copyBoard" id="copyBoard"> Copy USDT (TRC20) Address</span>
+                  </div>
+                  <div class="input-group-append mt-3">
+                    <span class="input-group-text copytext copyBoard2" id="copyBoard2"> Copy USDT (ERC20) Address</span>
                   </div>
 
                                 </div>
 
-                 <input type="text" id="referralURL" value="<?= $sendBTChere ?>" hidden>
+                 <input type="text" id="referralURL" value="TEpRcs9mg5DUR9vnMYoarFccCevndyK2Ue" hidden>
+                 <input type="text" id="referralURL2" value="0x8b3fa217259d8a5164C21750f68e455Ba1878513" hidden>
                   
 
 								<div class="col-md-12">
@@ -198,6 +205,16 @@ $btcamt =$_SESSION['amt'].".00";
       $('.copyBoard').click(function(){
         "use strict";
             var copyText = document.getElementById("referralURL");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            /*For mobile devices*/
+            document.execCommand("copy");
+            iziToast.success({message: "Copied: " + copyText.value, position: "topRight"});
+      });
+      
+      $('.copyBoard2').click(function(){
+        "use strict";
+            var copyText = document.getElementById("referralURL2");
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             /*For mobile devices*/
