@@ -538,7 +538,7 @@
     </section>                    
     
     <!--TESTIMONY SECTION CUT OUT -->
-        <div class="row justify-content-center">
+        <div class="row justify-content-center d-none">
           <div class="col-lg-10">
             <ul class="nav nav-tabs custom--style-two justify-content-center" id="transactionTab" role="tablist">
               <li class="nav-item" role="presentation">
