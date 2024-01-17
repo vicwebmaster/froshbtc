@@ -1,10 +1,7 @@
-<!--<script src="//code.tidio.co/8c2se2nz9ebnjimd5uqas4qctmhvqkln.js" async></script>-->
-
-<!-- Smartsupp Live Chat script -->
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
-_smartsupp.key = 'e45c835dda211562673a57eebedbbbb293f999b5';
+_smartsupp.key = '9d30bf8c8caed87d58838b497c73342f63f1217e';
 window.smartsupp||(function(d) {
   var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
   s=d.getElementsByTagName('script')[0];c=d.createElement('script');
@@ -13,7 +10,6 @@ window.smartsupp||(function(d) {
 })(document);
 </script>
 <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-
 
 <script type="text/javascript">
   function googleTranslateElementInit() {

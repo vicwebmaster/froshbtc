@@ -651,7 +651,8 @@
           </div>
         </div>
       </div>
-    </section>                    <section class="pb-120">
+    </section>                    
+    <section class="pb-120">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
@@ -783,7 +784,50 @@
           </div>
         </div>
       </div>
-    </section>                    
+    </section>  
+    
+    <section class="pb-120">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <div class="section-header">
+              <h2 class="section-title"><span class="font-weight-normal">Payment We</span> <b class="base--color">Accept</b></h2>
+              <p>We accept all major cryptocurrencies and fiat payment methods to make your investment process easier with our platform.</p>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="payment-slider">
+              <div class="single-slide">
+                <div class="brand-item">
+                  <p>Brian Keneth</p>
+                  <img src="assets/images/gateway/t1.jpg" alt="image">
+                  <p>I was initially afraid of Investing on this platform, but after I took a step of faith; <?php echo $system['sitename']; ?> multiplied my investment to the tune of $21,045 in 5 months.</p>
+                </div><!-- brand-item end -->
+              </div>
+              <div class="single-slide">
+                <div class="brand-item">
+                  <p>Tobias Lukas</p>
+                  <img src="assets/images/gateway/t2.jpg" alt="image">
+                  <p>moonvextrade Investments has increased my confidence in investing in crypto currencies. When I
+wanted to withdraw my money after making a profit of over $2000, it was very easy.</p>
+                </div><!-- brand-item end -->
+              </div>
+              <div class="single-slide">
+                <div class="brand-item">
+                  <p>Charlotte Noah</p>
+                  <img src="assets/images/gateway/t3.jpg" alt="image">
+                  <p>I started from STARTER and today I'm investing on GOLD investment package. I am enjoying
+my profits and I will encourage others to invest too. A trial, I am sure will convince you.</p>
+                </div><!-- brand-item end -->
+              </div>
+            </div><!-- payment-slider end -->
+          </div>
+        </div>
+      </div>
+    </section> 
+
     <section class="pt-120 pb-120 border-top-1">
       <div class="container">
         <div class="row justify-content-center">
@@ -919,7 +963,7 @@
         </div>
       </div>
     </section>
-
+   
 <?php
   require_once "assets/footer.php";
 ?>    
@@ -965,6 +1009,7 @@
 
   <link rel="stylesheet" href="assets/templates/bit_gold/css/iziToast.min.css">
 <script src="assets/templates/bit_gold/js/iziToast.min.js"></script>
+
 <script>
     $("#planAmt").keyup(function(){
         
