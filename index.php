@@ -461,7 +461,7 @@
                   </h2>
                 </div>
             
-                <div id="collapse0" class="collapse" aria-labelledby="heading0" data-parent="#accordionExample" style="">
+                <div id="collapse0" class="collapse" aria-labelledby="heading0" data-parent="#accordionExample">
                   <div class="card-body">
                     Deposit and withdrawal are available for at any time. Be sure, that your funds are not used in any ongoing trade before the withdrawal. The available amount is shown in your dashboard on the main page of Investing platform.Deposit and withdrawal are available for at any time. Be sure, that your funds are not used in any ongoing trade before the withdrawal. The available amount is shown in your dashboard on the main page of Investing platform.                  </div>
                 </div>
@@ -476,7 +476,7 @@
                   </h2>
                 </div>
             
-                <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample" style="">
+                <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
                   <div class="card-body">
                     You can see this anytime on your accounts dashboard.  You can see this anytime on your accounts dashboard.                  </div>
                 </div>
@@ -491,7 +491,7 @@
                   </h2>
                 </div>
             
-                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample" style="">
+                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
                   <div class="card-body">
                     Visit the password reset page, type in your email address and click the `Reset` button.
 
@@ -508,7 +508,7 @@
                   </h2>
                 </div>
             
-                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample" style="">
+                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
                   <div class="card-body">
                     You will get an automatic notification once we send the funds and you can always check your transactions or account balance. Your chosen payment system dictates how long it will take for the funds to reach you. 
                     You will get an automatic notification once we send the funds and you can always check your transactions or account balance. Your chosen payment system dictates how long it will take for the funds to reach you.                  </div>
@@ -524,7 +524,7 @@
                   </h2>
                 </div>
             
-                <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample" style="">
+                <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
                   <div class="card-body">
                     You can withdraw the full amount of your account balance minus the funds that are used currently for supporting opened positions.
 
