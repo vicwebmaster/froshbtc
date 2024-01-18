@@ -791,8 +791,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
             <div class="section-header">
-              <h2 class="section-title"><span class="font-weight-normal">Payment We</span> <b class="base--color">Accept</b></h2>
-              <p>We accept all major cryptocurrencies and fiat payment methods to make your investment process easier with our platform.</p>
+              <h2 class="section-title"><span class="font-weight-normal">Client</span> <b class="base--color">Testimonies</b></h2>
             </div>
           </div>
         </div><!-- row end -->
@@ -810,7 +809,7 @@
                 <div class="brand-item">
                   <p>Tobias Lukas</p>
                   <img src="assets/images/gateway/t2.jpg" alt="image">
-                  <p>moonvextrade Investments has increased my confidence in investing in crypto currencies. When I
+                  <p><?php echo $system['sitename']; ?> has increased my confidence in investing in crypto currencies. When I
 wanted to withdraw my money after making a profit of over $2000, it was very easy.</p>
                 </div><!-- brand-item end -->
               </div>
