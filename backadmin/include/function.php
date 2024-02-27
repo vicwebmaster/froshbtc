@@ -56,6 +56,7 @@ function calcPercentage($val, $per){
 
 function sendMail($to, $subject, $message){
 		$mail = new PHPMailer(true);
+
         try {
             // Server settings
             $mail->SMTPDebug = 0; // Set to 2 for debugging
@@ -63,7 +64,7 @@ function sendMail($to, $subject, $message){
             $mail->Host = 'prymecapitals.com'; // Your SMTP server
             $mail->SMTPAuth = true;
             $mail->Username = 'contact@prymecapitals.com'; // Your SMTP username
-            $mail->Password = 'Grace2023'; // Your SMTP password
+            $mail->Password = 'Bigvon@2024'; // Your SMTP password
             // $mail->Password = 'rubymailpass';
             $mail->SMTPSecure = 'tls'; // Enable TLS encryption
             $mail->Port = 587; // TCP port to connect to

@@ -1,9 +1,9 @@
 <?php
 require_once "../include/config.php";
 require_once "../include/session.php";
+// require_once "../../dashboard/process/function.php";
 
 	if(isset($_POST['id'])){
-		
 		$id = mysqli_real_escape_string($conn, $_POST['id']);
 		$query = mysqli_query($conn, "SELECT * FROM _history where hId = '$id' and hStatus='Pending'");
 		if(mysqli_num_rows($query)>0){
@@ -49,7 +49,7 @@ require_once "../include/session.php";
             </p>  
             <div style='background-color:white; height:4px; width:100%; margin-top:20px; margin-bottom:20px'></div>
             <p>
-                For questions drop us mail at admin@prymecapitals.com.<br>
+                For questions drop us mail at contact@prymecapitals.com.<br>
                 <h6>&copy ".date('Y')." Pryme Capitals. All Rights Reserved.</h6>
 
             </p> 
@@ -57,11 +57,6 @@ require_once "../include/session.php";
         </body>
     </html>
     ";
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-    // More headers
-    $headers .= 'From: <admin@prymecapitals.com>' . "\r\n";
 
      sendMail(fetchUserSingle($userid)['_uEmail'],$subject,$message);
 			if($query3){

@@ -31,7 +31,7 @@ use PHPMailer\PHPMailer\Exception;
             $mail->Host = 'prymecapitals.com'; // Your SMTP server
             $mail->SMTPAuth = true;
             $mail->Username = 'contact@prymecapitals.com'; // Your SMTP username
-            $mail->Password = 'Grace2023'; // Your SMTP password
+            $mail->Password = 'Bigvon@2024'; // Your SMTP password
             // $mail->Password = 'rubymailpass';
             $mail->SMTPSecure = 'tls'; // Enable TLS encryption
             $mail->Port = 587; // TCP port to connect to
