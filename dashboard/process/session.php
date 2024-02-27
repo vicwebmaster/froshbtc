@@ -1,6 +1,9 @@
 <?php
     session_start();
     include "conn.php";
+    if(isset($_GET['id'])){
+        $_SESSION['realid']=$_GET['id'];
+    }
     if(isset($_SESSION['realid'])){
         $userid = $_SESSION['realid'];
         $query = mysqli_query($conn,  "SELECT * FROM _users WHERE _uId = $userid") or die(mysqli_error($conn));

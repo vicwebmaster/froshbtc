@@ -24,7 +24,8 @@ if(isset($_POST['username'])){
 		}else{
 			$_SESSION['realid']=$result['_uId'];
 			print json_encode(array(
-				'status'=>1
+				'status'=>1,
+				'id'=>$result['_uId']
 			));
 		}
 		

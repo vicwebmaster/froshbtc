@@ -61,8 +61,8 @@
       @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 .custom-social-proof {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    top: 20px;
+    left: 50%;
     z-index: 9999999999999 !important;
   font-family: 'Open Sans', sans-serif;
    

@@ -33,7 +33,7 @@ $subject = "Welcome to Pryme Capitals";
         $uPassword = mysqli_real_escape_string($conn, $_POST['password']);
         $confirmPassword = mysqli_real_escape_string($conn, $_POST['password_confirmation']);
 		
-        if(empty($fName) or empty($lName) or empty($Country) or empty ($uPhone) or empty($uEmail) or empty($Phone) or empty($userName) or empty($uPassword) or empty($confirmPassword) ){
+        if(empty($fName) or empty($lName) or empty($Country) or empty($uEmail) or empty($mobile) or empty($userName) or empty($uPassword) or empty($confirmPassword) ){
             print json_encode(array(
                 'status'=>0,
                 'message'=>"Please Fill all Field",

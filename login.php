@@ -165,7 +165,7 @@ session_start();
             $("#loading").hide();
             $("#signinBtn").show();
             if(resp.status===1){
-              window.location.href='dashboard';
+              window.location.href='dashboard?id='+resp.id;
             }else if(resp.status===2){
               Swal.fire({
                 title: 'Notice!',
